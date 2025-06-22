@@ -7,9 +7,15 @@ from langchain_core.messages import HumanMessage, AIMessage
 import speech_recognition as sr
 from gtts import gTTS
 from langdetect import detect
+from dotenv import load_dotenv
 import playsound
 
+load_dotenv()
+
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+if not OPENROUTER_API_KEY:
+    raise ValueError("API key not found. Make sure OPENROUTER_API_KEY is set in your .env file.")
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY
