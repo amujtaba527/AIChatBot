@@ -20,7 +20,7 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY
 )
-
+ 
 def call_model(state: MessagesState):
     # Convert LangChain messages to OpenAI-style dicts
     messages = []
